@@ -96,6 +96,8 @@ Provides: %{_cross_os}settings-plugin(aws-k8s-1.35)
 Provides: %{_cross_os}settings-plugin(aws-k8s-1.35-fips)
 Provides: %{_cross_os}settings-plugin(aws-k8s-1.36)
 Provides: %{_cross_os}settings-plugin(aws-k8s-1.36-fips)
+Provides: %{_cross_os}settings-plugin(aws-k8s-1.37)
+Provides: %{_cross_os}settings-plugin(aws-k8s-1.37-fips)
 Conflicts: %{_cross_os}settings-plugin(any)
 Conflicts: %{_cross_os}variant-flavor(nvidia)
 
