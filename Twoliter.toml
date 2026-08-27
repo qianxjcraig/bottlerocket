@@ -5,6 +5,11 @@ project-vendor = "Bottlerocket"
 [vendor.bottlerocket]
 registry = "public.ecr.aws/bottlerocket"
 
+# Local registry serving the core-kit built from the eks-1.37 branch.
+# TESTING ONLY - drop this commit before opening the PR.
+[vendor.local]
+registry = "localhost:6126"
+
 [sdk]
 name = "bottlerocket-sdk"
 version = "0.78.0"
@@ -17,5 +22,5 @@ vendor = "bottlerocket"
 
 [[kit]]
 name = "bottlerocket-core-kit"
-version = "15.1.0"
-vendor = "bottlerocket"
+version = "15.1.1"
+vendor = "local"
