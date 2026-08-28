@@ -121,6 +121,8 @@ Provides: %{_cross_os}settings-plugin(aws-k8s-1.35-nvidia)
 Provides: %{_cross_os}settings-plugin(aws-k8s-1.35-nvidia-fips)
 Provides: %{_cross_os}settings-plugin(aws-k8s-1.36-nvidia)
 Provides: %{_cross_os}settings-plugin(aws-k8s-1.36-nvidia-fips)
+Provides: %{_cross_os}settings-plugin(aws-k8s-1.37-nvidia)
+Provides: %{_cross_os}settings-plugin(aws-k8s-1.37-nvidia-fips)
 Conflicts: %{_cross_os}settings-plugin(any)
 
 %description aws-k8s-nvidia
@@ -162,6 +164,8 @@ Provides: %{_cross_os}settings-plugin(vmware-k8s-1.35)
 Provides: %{_cross_os}settings-plugin(vmware-k8s-1.35-fips)
 Provides: %{_cross_os}settings-plugin(vmware-k8s-1.36)
 Provides: %{_cross_os}settings-plugin(vmware-k8s-1.36-fips)
+Provides: %{_cross_os}settings-plugin(vmware-k8s-1.37)
+Provides: %{_cross_os}settings-plugin(vmware-k8s-1.37-fips)
 Conflicts: %{_cross_os}settings-plugin(any)
 
 %description vmware-k8s
