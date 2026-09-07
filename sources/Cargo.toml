@@ -138,27 +138,27 @@ walkdir = "2"
 
 [workspace.dependencies.bottlerocket-defaults-helper]
 git = "https://github.com/qianxjcraig/bottlerocket-settings-sdk"
-rev = "8995e587866c77e13d5f07dc9db1ea60745e7f57"
+rev = "ae6208fe6398fd8d85e9a7709524e174ffa7bc13"
 version = "0.1.1"
 
 [workspace.dependencies.bottlerocket-modeled-types]
 git = "https://github.com/qianxjcraig/bottlerocket-settings-sdk"
-rev = "8995e587866c77e13d5f07dc9db1ea60745e7f57"
+rev = "ae6208fe6398fd8d85e9a7709524e174ffa7bc13"
 version = "0.18.0"
 
 [workspace.dependencies.bottlerocket-settings-models]
 git = "https://github.com/qianxjcraig/bottlerocket-settings-sdk"
-rev = "8995e587866c77e13d5f07dc9db1ea60745e7f57"
+rev = "ae6208fe6398fd8d85e9a7709524e174ffa7bc13"
 version = "0.27.0"
 
 [workspace.dependencies.bottlerocket-settings-plugin]
 git = "https://github.com/qianxjcraig/bottlerocket-settings-sdk"
-rev = "8995e587866c77e13d5f07dc9db1ea60745e7f57"
+rev = "ae6208fe6398fd8d85e9a7709524e174ffa7bc13"
 version = "0.1.0"
 
 [workspace.dependencies.settings-extension-oci-defaults]
 git = "https://github.com/qianxjcraig/bottlerocket-settings-sdk"
-rev = "8995e587866c77e13d5f07dc9db1ea60745e7f57"
+rev = "ae6208fe6398fd8d85e9a7709524e174ffa7bc13"
 version = "0.1.0"
 
 [profile.release]
