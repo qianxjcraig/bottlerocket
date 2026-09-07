@@ -1,7 +1,7 @@
 # NVIDIA DRA driver host service.
 [services.nvidia-dra-driver-gpu]
 restart-commands = [
-    "/bin/systemctl try-reload-or-restart nvidia-dra-driver-gpu.service",
+    "/bin/systemctl restart nvidia-dra-driver-gpu.service",
 ]
 configuration-files = [
     "nvidia-dra-driver-gpu-exec-start-conf",
@@ -11,9 +11,9 @@ configuration-files = [
 path = "/etc/systemd/system/nvidia-dra-driver-gpu.service.d/exec-start.conf"
 template-path = "/usr/share/templates/nvidia-dra-driver-gpu-exec-start-conf"
 
-# A single mode controls both providers.  The systemd units also conflict with
-# one another so sequential service restarts cannot create a dual-provider
-# window.
+# A single mode controls both providers.  Only the selected provider renders a
+# systemd conflict, so its restart atomically stops the previously selected
+# provider without letting inactive placeholder units suppress a real one.
 [metadata.settings.accelerators.nvidia.mode]
 affected-services = [
     "nvidia-k8s-device-plugin",

@@ -1,7 +1,7 @@
 # nvidia device plugin service
 [services.nvidia-k8s-device-plugin]
 restart-commands = [
-    "/bin/systemctl try-reload-or-restart nvidia-k8s-device-plugin.service",
+    "/bin/systemctl restart nvidia-k8s-device-plugin.service",
 ]
 configuration-files = [
     "nvidia-k8s-device-plugin-conf",
@@ -11,7 +11,7 @@ configuration-files = [
 
 [services.nvidia-mps-control-daemon]
 restart-commands = [
-    "/bin/systemctl try-reload-or-restart nvidia-mps-control-daemon.service",
+    "/bin/systemctl restart nvidia-mps-control-daemon.service",
 ]
 configuration-files = [
     "nvidia-k8s-device-plugin-conf",
