@@ -1,8 +1,6 @@
 # nvidia device plugin service
 [services.nvidia-k8s-device-plugin]
-restart-commands = [
-    "/usr/bin/nvidia-provider-reconciler nvidia-k8s-device-plugin.service",
-]
+restart-commands = ["/usr/bin/nvidia-provider-reconciler"]
 configuration-files = [
     "nvidia-k8s-device-plugin-conf",
     "nvidia-k8s-device-plugin-exec-start-conf",
@@ -10,9 +8,7 @@ configuration-files = [
 ]
 
 [services.nvidia-mps-control-daemon]
-restart-commands = [
-    "/usr/bin/nvidia-provider-reconciler nvidia-mps-control-daemon.service",
-]
+restart-commands = ["/usr/bin/nvidia-provider-reconciler"]
 configuration-files = [
     "nvidia-k8s-device-plugin-conf",
     "nvidia-mps-control-daemon-exec-start-conf",
@@ -37,9 +33,8 @@ template-path = "/usr/share/templates/nvidia-mps-control-daemon-exec-start-conf"
 
 [metadata.settings.kubelet-device-plugins.nvidia]
 affected-services = [
-    "nvidia-k8s-device-plugin",
+    "nvidia-accelerator-providers",
     "nvidia-container-toolkit",
-    "nvidia-mps-control-daemon",
 ]
 
 [settings.kubelet-device-plugins.nvidia]

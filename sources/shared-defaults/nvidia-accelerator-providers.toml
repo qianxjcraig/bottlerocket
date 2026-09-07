@@ -1,8 +1,6 @@
 # NVIDIA DRA driver host service.
 [services.nvidia-dra-driver-gpu]
-restart-commands = [
-    "/usr/bin/nvidia-provider-reconciler nvidia-dra-driver-gpu.service",
-]
+restart-commands = ["/usr/bin/nvidia-provider-reconciler"]
 configuration-files = [
     "nvidia-dra-driver-gpu-exec-start-conf",
 ]
@@ -11,20 +9,23 @@ configuration-files = [
 path = "/etc/systemd/system/nvidia-dra-driver-gpu.service.d/exec-start.conf"
 template-path = "/usr/share/templates/nvidia-dra-driver-gpu-exec-start-conf"
 
-# A single mode controls both providers.  Only the selected provider renders a
-# systemd conflict and starts after its peer, so it atomically replaces the
-# previous provider.  After kubelet is active, restart commands restart only
-# selected providers and stop unselected placeholders.  The reconciler leaves
-# first-boot startup to normal systemd ordering.
-[metadata.settings.accelerators.nvidia.mode]
-affected-services = [
-    "nvidia-k8s-device-plugin",
-    "nvidia-mps-control-daemon",
-    "nvidia-dra-driver-gpu",
+# All NVIDIA provider templates are rendered together and reconciled by one
+# restart command.  The reconciler validates the rendered selection, stops all
+# providers, and starts only the selected set in dependency order.  It leaves
+# first-boot startup to normal systemd ordering before kubelet is active.
+[services.nvidia-accelerator-providers]
+restart-commands = ["/usr/bin/nvidia-provider-reconciler"]
+configuration-files = [
+    "nvidia-k8s-device-plugin-conf",
+    "nvidia-k8s-device-plugin-exec-start-conf",
+    "nvidia-k8s-device-plugin-mig-conf",
+    "nvidia-mps-control-daemon-exec-start-conf",
+    "nvidia-dra-driver-gpu-exec-start-conf",
 ]
+
+[metadata.settings.accelerators.nvidia.mode]
+affected-services = ["nvidia-accelerator-providers"]
 
 # The DRA plugin command includes the Kubernetes node name.
 [metadata.settings.kubernetes.hostname-override]
-affected-services = [
-    "nvidia-dra-driver-gpu",
-]
+affected-services = ["nvidia-accelerator-providers"]
