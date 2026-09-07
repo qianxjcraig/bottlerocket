@@ -26,6 +26,20 @@ configuration-files = [
 [metadata.settings.accelerators.nvidia.mode]
 affected-services = ["nvidia-accelerator-providers"]
 
+[metadata.settings.accelerators.nvidia.mig]
+affected-services = ["nvidia-accelerator-providers"]
+
+# Approved default shared-inference geometries. The MIG manager selects the
+# entry matching the physical GPU model and validates the exact device inventory.
+[settings.accelerators.nvidia.mig.profile]
+"a100.40gb" = "1g.5gb"
+"a100.80gb" = "1g.10gb"
+"h100.80gb" = "1g.10gb"
+"h200.141gb" = "1g.18gb"
+"b200.180gb" = "1g.23gb"
+"rtxpro6000.96gb" = "1g.24gb"
+"b300.269gb" = "1g.34gb"
+
 # The DRA plugin command includes the Kubernetes node name.
 [metadata.settings.kubernetes.hostname-override]
 affected-services = ["nvidia-accelerator-providers"]
