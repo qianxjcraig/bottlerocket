@@ -85,4 +85,7 @@ allow-git = [
     # We will allow it as an exception until the following is resolved:
     # https://github.com/bottlerocket-os/bottlerocket-settings-sdk/issues/18
     "https://github.com/bottlerocket-os/bottlerocket-settings-sdk",
+    # Feature development uses the user's fork until the atomic accelerator
+    # mode settings are available from the upstream SDK repository.
+    "https://github.com/qianxjcraig/bottlerocket-settings-sdk",
 ]
