@@ -137,28 +137,28 @@ url = "2"
 walkdir = "2"
 
 [workspace.dependencies.bottlerocket-defaults-helper]
-git = "https://github.com/bottlerocket-os/bottlerocket-settings-sdk"
-tag = "bottlerocket-settings-models-v0.25.0"
+git = "https://github.com/qianxjcraig/bottlerocket-settings-sdk"
+rev = "eb84b904f81dae25023c4b742544c060140258f7"
 version = "0.1.1"
 
 [workspace.dependencies.bottlerocket-modeled-types]
-git = "https://github.com/bottlerocket-os/bottlerocket-settings-sdk"
-tag = "bottlerocket-settings-models-v0.25.0"
-version = "0.17.0"
+git = "https://github.com/qianxjcraig/bottlerocket-settings-sdk"
+rev = "eb84b904f81dae25023c4b742544c060140258f7"
+version = "0.18.0"
 
 [workspace.dependencies.bottlerocket-settings-models]
-git = "https://github.com/bottlerocket-os/bottlerocket-settings-sdk"
-tag = "bottlerocket-settings-models-v0.25.0"
-version = "0.25.0"
+git = "https://github.com/qianxjcraig/bottlerocket-settings-sdk"
+rev = "eb84b904f81dae25023c4b742544c060140258f7"
+version = "0.27.0"
 
 [workspace.dependencies.bottlerocket-settings-plugin]
-git = "https://github.com/bottlerocket-os/bottlerocket-settings-sdk"
-tag = "bottlerocket-settings-models-v0.25.0"
+git = "https://github.com/qianxjcraig/bottlerocket-settings-sdk"
+rev = "eb84b904f81dae25023c4b742544c060140258f7"
 version = "0.1.0"
 
 [workspace.dependencies.settings-extension-oci-defaults]
-git = "https://github.com/bottlerocket-os/bottlerocket-settings-sdk"
-tag = "bottlerocket-settings-models-v0.25.0"
+git = "https://github.com/qianxjcraig/bottlerocket-settings-sdk"
+rev = "eb84b904f81dae25023c4b742544c060140258f7"
 version = "0.1.0"
 
 [profile.release]

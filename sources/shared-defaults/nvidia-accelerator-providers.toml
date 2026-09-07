@@ -1,0 +1,28 @@
+# NVIDIA DRA driver host service.
+[services.nvidia-dra-driver-gpu]
+restart-commands = [
+    "/bin/systemctl try-reload-or-restart nvidia-dra-driver-gpu.service",
+]
+configuration-files = [
+    "nvidia-dra-driver-gpu-exec-start-conf",
+]
+
+[configuration-files.nvidia-dra-driver-gpu-exec-start-conf]
+path = "/etc/systemd/system/nvidia-dra-driver-gpu.service.d/exec-start.conf"
+template-path = "/usr/share/templates/nvidia-dra-driver-gpu-exec-start-conf"
+
+# A single mode controls both providers.  The systemd units also conflict with
+# one another so sequential service restarts cannot create a dual-provider
+# window.
+[metadata.settings.accelerators.nvidia.mode]
+affected-services = [
+    "nvidia-k8s-device-plugin",
+    "nvidia-mps-control-daemon",
+    "nvidia-dra-driver-gpu",
+]
+
+# The DRA plugin command includes the Kubernetes node name.
+[metadata.settings.kubernetes.hostname-override]
+affected-services = [
+    "nvidia-dra-driver-gpu",
+]
