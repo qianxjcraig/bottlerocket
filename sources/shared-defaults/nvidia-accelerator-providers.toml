@@ -13,8 +13,9 @@ template-path = "/usr/share/templates/nvidia-dra-driver-gpu-exec-start-conf"
 
 # A single mode controls both providers.  Only the selected provider renders a
 # systemd conflict and starts after its peer, so it atomically replaces the
-# previous provider.  Restart commands start inactive units only after kubelet
-# is active; the reconciler leaves first-boot startup to normal systemd ordering.
+# previous provider.  After kubelet is active, restart commands restart only
+# selected providers and stop unselected placeholders.  The reconciler leaves
+# first-boot startup to normal systemd ordering.
 [metadata.settings.accelerators.nvidia.mode]
 affected-services = [
     "nvidia-k8s-device-plugin",
