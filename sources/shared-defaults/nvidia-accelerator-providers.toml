@@ -1,7 +1,7 @@
 # NVIDIA DRA driver host service.
 [services.nvidia-dra-driver-gpu]
 restart-commands = [
-    "/bin/systemctl restart nvidia-dra-driver-gpu.service",
+    "/bin/sh -c 'if /bin/systemctl --quiet is-active kubelet.service; then exec /bin/systemctl restart nvidia-dra-driver-gpu.service; else exec /bin/systemctl try-reload-or-restart nvidia-dra-driver-gpu.service; fi'",
 ]
 configuration-files = [
     "nvidia-dra-driver-gpu-exec-start-conf",
@@ -12,8 +12,9 @@ path = "/etc/systemd/system/nvidia-dra-driver-gpu.service.d/exec-start.conf"
 template-path = "/usr/share/templates/nvidia-dra-driver-gpu-exec-start-conf"
 
 # A single mode controls both providers.  Only the selected provider renders a
-# systemd conflict, so its restart atomically stops the previously selected
-# provider without letting inactive placeholder units suppress a real one.
+# systemd conflict and starts after its peer, so it atomically replaces the
+# previous provider.  Restart commands start inactive units only after kubelet
+# is active; first-boot settings rendering must not start providers early.
 [metadata.settings.accelerators.nvidia.mode]
 affected-services = [
     "nvidia-k8s-device-plugin",
