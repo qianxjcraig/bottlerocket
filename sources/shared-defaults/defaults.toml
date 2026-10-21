@@ -144,6 +144,15 @@ restart-commands = []
 [metadata.settings.kernel.hugepages]
 affected-services = ["hugepages"]
 
+# Zram capacity is only applied at boot on variants with release-swap.
+# Render runtime updates without attempting a live swapoff; reboot to apply.
+[services.zram]
+configuration-files = ["corndog-toml"]
+restart-commands = []
+
+[metadata.settings.kernel.zram]
+affected-services = ["zram"]
+
 [configuration-files.corndog-toml]
 path = "/etc/corndog.toml"
 template-path = "/usr/share/templates/corndog-toml"
