@@ -1148,6 +1148,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "kernel-zram-size"
+version = "0.1.0"
+dependencies = [
+ "migration-helpers",
+ "serde_json",
+]
+
+[[package]]
 name = "kubelet-device-plugins-cdi-settings"
 version = "0.1.0"
 dependencies = [
