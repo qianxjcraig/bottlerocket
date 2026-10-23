@@ -1238,6 +1238,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "kubernetes-kube-reserved-memory-min"
+version = "0.1.0"
+dependencies = [
+ "migration-helpers",
+]
+
+[[package]]
 name = "kubernetes-memory-qos-settings"
 version = "0.1.0"
 dependencies = [
