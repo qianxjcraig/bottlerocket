@@ -1,0 +1,34 @@
+# Only included by variants which install release-swap.
+[settings.kubernetes.kube-reserved-memory-min]
+kubelet = "128Mi"
+containerd = "128Mi"
+
+# Override the parent's affected service so these settings never restart kubelet.
+[metadata.settings.kubernetes.kube-reserved-memory-min]
+affected-services = ["kube-reserved-memory-min"]
+
+[services.kube-reserved-memory-min]
+configuration-files = [
+    "runtime-memory-min-conf",
+    "kubelet-memory-min-conf",
+    "containerd-memory-min-conf",
+]
+# Applies the rendered values with set-property --runtime instead of restarting kubelet or containerd.
+restart-commands = [
+    "/usr/bin/corndog apply-kube-reserved-memory-min",
+]
+
+[configuration-files.runtime-memory-min-conf]
+path = "/etc/systemd/system/runtime.slice.d/10-memory-min.conf"
+template-path = "/usr/share/templates/runtime-memory-min-conf"
+mode = "0644"
+
+[configuration-files.kubelet-memory-min-conf]
+path = "/etc/systemd/system/kubelet.service.d/10-memory-min.conf"
+template-path = "/usr/share/templates/kubelet-memory-min-conf"
+mode = "0644"
+
+[configuration-files.containerd-memory-min-conf]
+path = "/etc/systemd/system/containerd.service.d/10-memory-min.conf"
+template-path = "/usr/share/templates/containerd-memory-min-conf"
+mode = "0644"

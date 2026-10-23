@@ -78,3 +78,7 @@ affected-services = ["static-pods"]
 
 [metadata.settings.aws.profile]
 affected-services = ["kubernetes"]
+
+# Empty so these keys don't inherit the kubernetes service restart; swap variants override it.
+[metadata.settings.kubernetes.kube-reserved-memory-min]
+affected-services = []
