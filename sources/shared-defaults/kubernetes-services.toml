@@ -78,3 +78,9 @@ affected-services = ["static-pods"]
 
 [metadata.settings.aws.profile]
 affected-services = ["kubernetes"]
+
+# These optional keys are inert unless the variant installs release-swap and
+# overrides this entry with the memory-protection apply service. In particular,
+# do not inherit the parent Kubernetes service restart on older variants.
+[metadata.settings.kubernetes.kube-reserved-memory-min]
+affected-services = []
