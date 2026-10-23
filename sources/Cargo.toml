@@ -47,6 +47,7 @@ members = [
     "settings-defaults/vmware-k8s-1.37",
 
     # (all previous migrations archived; add new ones after this line)
+    "settings-migrations/v1.68.0/kubernetes-kube-reserved-memory-min",
     "settings-migrations/v1.34.0/kubelet-device-plugins-mig-settings",
     "settings-migrations/v1.36.0/kubernetes-ecr-credential-providers-expansion",
     "settings-migrations/v1.37.0/delete-configs-and-services-on-downgrade",
